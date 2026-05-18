@@ -1,0 +1,148 @@
+/**
+ * @name crimson
+ * @description a modern black and red customizable discord theme.
+ * @author lostinmyowntears
+ * @version 1.0.0
+ * @source https://github.com/Crimson-Labs/crimson-theme/blob/main/crimson.theme.css
+ * @authorId 1503886610163433514
+ * @authorLink https://github.com/Crimson-Labs
+*/
+
+/* import theme modules */
+@import url('https://raw.githubusercontent.com/Crimson-Labs/crimson-theme/main/midnight.css');
+
+body {
+    /* font options */
+    --font: 'figtree'; /* change to '' for default discord font */
+    --code-font: ''; /* change to '' for default discord font */
+    font-weight: 400; /* normal text font weight. DOES NOT AFFECT BOLD TEXT */
+
+    /* sizes */
+    --gap: 12px; /* spacing between panels */
+    --divider-thickness: 4px; /* thickness of unread messages divider and highlighted message borders */
+    --border-thickness: 1px; /* thickness of borders around main panels. DOES NOT AFFECT OTHER BORDERS */
+
+    /* animation/transition options */
+    --animations: on; /* off: disable animations/transitions, on: enable animations/transitions */
+    --list-item-transition: 0.2s ease; /* transition for list items */
+    --dms-icon-svg-transition: 0.4s ease; /* transition for the dms icon */
+    --border-hover-transition: 0.2s ease; /* transition for borders when hovered */
+
+    /* top bar options */
+    --top-bar-height: var(--gap); /* height of the top bar */
+    --top-bar-button-position: titlebar; /* off/default, hide, serverlist, titlebar */
+    --top-bar-title-position: off; /* off/default, hide, left */
+    --subtle-top-bar-title: off; /* off/default, on for subtle old-style title */
+
+    /* window controls */
+    --custom-window-controls: on; /* off/default, on for custom controls */
+    --window-control-size: 14px; /* size of custom window controls */
+
+    /* dms button options */
+    --custom-dms-icon: custom; /* off/default, hide, custom */
+    --dms-icon-svg-url: url('https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/discord.svg'); /* svg url */
+    --dms-icon-svg-size: 90%; /* css mask-size value */
+    --dms-icon-color-before: var(--red-3); /* normal icon color */
+    --dms-icon-color-after: var(--red-1); /* hovered/selected icon color */
+    --custom-dms-background: color; /* off/image/color */
+    --dms-background-image-url: url('https://raw.githubusercontent.com/Crimson-Labs/crimson-theme/main/crimson-bg.png'); /* background image url (png fallback) */
+    --dms-background-image-size: cover; /* css background-size value */
+    --dms-background-color: linear-gradient(70deg, var(--red-2), var(--red-3), var(--red-4)); /* fixed gradient */
+
+    /* background image options */
+    --background-image: on; /* off/on */
+    --background-image-url: url('https://raw.githubusercontent.com/Crimson-Labs/crimson-theme/main/crimson-bg.gif'); /* animated gif background */
+
+    /* transparency/blur options */
+    --transparency-tweaks: on; /* off/on */
+    --remove-bg-layer: off; /* off/on */
+    --panel-blur: on; /* off/on */
+    --blur-amount: 14px; /* blur amount */
+    --bg-floating: hsla(0, 65%, 10%, 0.55); /* floating panel background with blur */
+
+    /* chatbar options */
+    --custom-chatbar: off; /* off/separated */
+    --chatbar-height: 47px; /* chatbar height */
+
+    /* other options */
+    --small-user-panel: on; /* off/default, on for compact panel */
+}
+
+/* color options */
+:root {
+    --colors: on; /* off: discord defaults, on: custom colors */
+
+    /* text colors */
+    --text-0: var(--bg-4); /* text on colored elements */
+    --text-1: hsl(0, 0%, 96%); /* primary light text */
+    --text-2: hsl(0, 0%, 78%); /* headings and important text */
+    --text-3: hsl(0, 0%, 64%); /* normal text */
+    --text-4: hsl(0, 0%, 48%); /* icon buttons and channels */
+    --text-5: hsl(0, 0%, 34%); /* muted channels/chats and timestamps */
+
+    /* background and dark colors */
+    --bg-1: hsla(0, 70%, 18%, 0.62); /* glass dark buttons when clicked */
+    --bg-2: hsla(0, 70%, 12%, 0.52); /* glass dark buttons */
+    --bg-3: hsla(0, 70%, 8%, 0.46); /* glass spacing, secondary elements */
+    --bg-4: hsla(0, 70%, 5%, 0.40); /* glass main background color */
+    --hover: hsla(0, 75%, 55%, 0.12); /* channels and buttons when hovered */
+    --active: hsla(0, 75%, 55%, 0.22); /* channels and buttons when selected */
+    --active-2: hsla(0, 75%, 55%, 0.32); /* extra transparent button state */
+    --message-hover: hsla(0, 75%, 55%, 0.08); /* message hover state */
+
+    /* accent colors */
+    --accent-1: var(--red-1); /* links and accent text */
+    --accent-2: var(--red-2); /* small accent elements */
+    --accent-3: var(--red-3); /* accent buttons */
+    --accent-4: var(--red-4); /* hovered accent buttons */
+    --accent-5: var(--red-5); /* active accent buttons */
+    --accent-new: var(--red-2); /* replacement for default warning red uses */
+    --mention: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 88%) 40%, transparent);
+    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 94%) 40%, transparent);
+    --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent);
+    --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent);
+
+    /* status indicator colors */
+    --online: var(--green-2);
+    --dnd: var(--red-2);
+    --idle: var(--yellow-2);
+    --streaming: var(--red-4);
+    --offline: var(--text-4);
+
+    /* border colors */
+    --border-light: var(--hover);
+    --border: var(--active);
+    --border-hover: var(--active);
+    --button-border: hsl(0, 0%, 100%, 0.12);
+
+    /* base colors */
+    --red-1: oklch(76% 0.19 25);
+    --red-2: oklch(70% 0.21 25);
+    --red-3: oklch(64% 0.22 24);
+    --red-4: oklch(58% 0.21 24);
+    --red-5: oklch(52% 0.19 24);
+
+    --green-1: oklch(75% 0.11 170);
+    --green-2: oklch(70% 0.11 170);
+    --green-3: oklch(65% 0.11 170);
+    --green-4: oklch(60% 0.11 170);
+    --green-5: oklch(55% 0.11 160);
+
+    --blue-1: var(--red-1);
+    --blue-2: var(--red-2);
+    --blue-3: var(--red-3);
+    --blue-4: var(--red-4);
+    --blue-5: var(--red-5);
+
+    --yellow-1: oklch(80% 0.11 90);
+    --yellow-2: oklch(75% 0.11 90);
+    --yellow-3: oklch(70% 0.11 90);
+    --yellow-4: oklch(65% 0.11 90);
+    --yellow-5: oklch(60% 0.11 90);
+
+    --purple-1: var(--red-1);
+    --purple-2: var(--red-2);
+    --purple-3: var(--red-3);
+    --purple-4: var(--red-4);
+    --purple-5: var(--red-5);
+}
